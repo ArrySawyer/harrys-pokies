@@ -5,11 +5,11 @@ import Image from 'next/image'
 
 
 export default function HomePage() {
-  const sectionSearch = useRef(null)
+  const sectionSearch = useRef<HTMLDivElement>(null)
   const searchBackgroundBlur = useRef(null)
 
   const scrollToSearch = () => {
-    sectionSearch.current?.scrollIntoView({ behavior: 'smooth' });
+    sectionSearch?.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
