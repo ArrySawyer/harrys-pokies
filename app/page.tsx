@@ -33,13 +33,13 @@ export default function HomePage() {
             </ul>
           </header>
           <div className="mt-16 md:mt-20 z-10 relative">
-            <h1 className="text-6xl md:text-7xl font-extrabold mb-8 md:mb-12">Harry&apos;s Pokies</h1>
-            <p className="text-xl font-medium max-w-lg mb-8 md:mb-12">This a project made to show what I have been learning with React, Typescript, Unit Testing, Tailwind, API&apos;s, GitHub, Lint etc.</p>
-            <button onClick={scrollToSearch} className="text-xl font-medium text-[#212E3D] w-fit flex items-center gap-2 px-8 py-3 border-2 border-[#212E3D] rounded-xl ease-in-out duration-75 bg-white hover:bg-[#212E3D] hover:text-white hover:shadow-xl shadow-[#212E3D]">
+            <h1 className="text-5xl md:text-7xl font-extrabold mb-4 md:mb-12">Harry&apos;s Pokies</h1>
+            <p className="text-lg md:text-xl font-medium max-w-lg mb-4 md:mb-12">This a project made to show what I have been learning with React, Typescript, Unit Testing, Tailwind, API&apos;s, GitHub, Lint etc.</p>
+            <button onClick={scrollToSearch} className="text-lg md:text-xl font-medium text-[#212E3D] w-fit flex items-center gap-2 px-6 md:px-8 py-2 md:py-3 border-2 border-[#212E3D] rounded-xl ease-in-out duration-75 bg-white hover:bg-[#212E3D] hover:text-white hover:shadow-xl shadow-[#212E3D]">
               Search Pokemon Now
             </button>
           </div>
-          <Image className="absolute right-0 bottom-0 mb-5 md:mb-0 w-5/6 md:w-1/2" src="/images/pikchu-homepage.webp" alt="Pikachu" width="1000" height="0" />
+          <Image className="absolute right-0 bottom-0 mb-5 md:mb-0 w-4/6 md:w-1/2" src="/images/pikchu-homepage.webp" alt="Pikachu" width="1000" height="0" />
         </div>
       </section>
 
