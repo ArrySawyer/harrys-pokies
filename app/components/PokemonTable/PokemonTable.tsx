@@ -1,6 +1,6 @@
 "use client"
-import allPokemon from '../../../json/all-pokemon.json'
 import PokemonItem from '../PokemonItem/PokemonItem'
+import PokemonItemSkeleton from '../PokemonItemSkeleton/PokemonItemSkeleton'
 import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image'
 import Axios from 'axios'
@@ -15,9 +15,12 @@ const PokemonTable = () => {
   const [pokemonList, setPokemonList] = useState<any[]>([]);
   const [previousPageRequest, setPreviousPageRequest] = useState("")
   const [nextPageRequest, setNextPageRequest] = useState("")
+  const [isLoading, setIsLoading] = useState(true)
 
   const callApi = (request: string) => {
     console.log('Call API');
+    setPokemonList([])
+    setIsLoading(true)
     Axios.get(request).then((response) => {
       console.log("response =")
       console.log(response)
@@ -37,6 +40,7 @@ const PokemonTable = () => {
         console.log(test)
         setPokemonList(test)
       })
+      setIsLoading(false)
       setNextPageRequest(response.data.next)
       setPreviousPageRequest(response.data.previous)
     })
@@ -55,8 +59,9 @@ const PokemonTable = () => {
 
   return(
     <>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-x-16 gap-y-48 mt-48">
-        {pokemonList && pokemonList.map((pokemonDetails) => (
+      <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-x-16 gap-y-48 mt-48">
+      {isLoading && <PokemonItemSkeleton cards={9}/>}
+        {pokemonList.map((pokemonDetails) => (
           <PokemonItem pokemonDetails={pokemonDetails} key={pokemonDetails.id}/>
         ))}
       </div>
