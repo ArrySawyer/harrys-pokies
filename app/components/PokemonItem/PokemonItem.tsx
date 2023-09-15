@@ -160,7 +160,7 @@ const PokemonItem = ({ pokemonDetails }: PokemonItemProps) => {
               <p
                 className={`px-2.5 py-0.5 rounded-full ${mainTypeStyle.main} flex gap-1.5 font-semibold capitalize`}
               >
-                <Image
+                <img
                   src={`/svgs/${pokemonDetails.types[0].type.name}.svg`}
                   alt={pokemonDetails.types[0].type.name}
                   width="16"
@@ -172,7 +172,7 @@ const PokemonItem = ({ pokemonDetails }: PokemonItemProps) => {
                 <p
                   className={`px-2.5 py-0.5 rounded-full ${secoundaryTypeStyle.main} flex gap-1.5 font-semibold capitalize`}
                 >
-                  <Image
+                  <img
                     src={`/svgs/${pokemonDetails.types[1].type.name}.svg`}
                     alt={pokemonDetails.types[1].type.name}
                     width="16"
