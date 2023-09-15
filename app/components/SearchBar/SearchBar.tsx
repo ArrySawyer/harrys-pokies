@@ -7,6 +7,11 @@ type SearchBarProps = {
   handleScrollToSearch: () => void;
 };
 
+type handleClickOutside = {
+  e: EventTarget;
+  target: HTMLElement;
+};
+
 const SearchBar = ({ handleScrollToSearch }: SearchBarProps) => {
   const [seachValue, setSeachValue] = useState("");
   const [seachFocused, setSearchFocused] = useState(false);
@@ -16,14 +21,12 @@ const SearchBar = ({ handleScrollToSearch }: SearchBarProps) => {
   const [showSearchResults, setShowSearchResults] = useState(false);
 
   useEffect(() => {
-    console.log("seachValue =");
-    console.log(seachValue);
     const getData = setTimeout(() => {
       if (seachValue) {
         setSearchFilteredPokemon(
           allPokemon
             .filter((pokemon) => {
-              pokemon.name.indexOf(seachValue) > -1;
+              return pokemon.name.indexOf(seachValue) > -1;
             })
             .slice(0, 3)
         );
@@ -35,14 +38,11 @@ const SearchBar = ({ handleScrollToSearch }: SearchBarProps) => {
     return () => clearTimeout(getData);
   }, [seachValue]);
 
-  console.log("searchFilteredPokemon =");
-  console.log(searchFilteredPokemon);
-
   const searchBoxWrapperRef = useRef<HTMLInputElement>(null);
   const searchBoxRef = useRef<HTMLInputElement>(null);
 
   const handleClickOutside = useCallback(
-    (e: EventTarget) => {
+    (e: handleClickOutside) => {
       if (searchBoxWrapperRef.current != null && searchBoxRef.current != null) {
         if (!searchBoxWrapperRef.current.contains(e.target)) {
           setSearchFocused(false);

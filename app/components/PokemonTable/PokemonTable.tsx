@@ -4,17 +4,7 @@ import PokemonItemSkeleton from "../PokemonItemSkeleton/PokemonItemSkeleton";
 import { useState, useEffect } from "react";
 import Axios from "axios";
 
-type response = {
-  name: string;
-  url: string;
-};
-
 type listResponse = {
-  name: string;
-  url: string;
-};
-
-type itemResponse = {
   name: string;
   url: string;
 };
@@ -42,11 +32,7 @@ const PokemonTable = () => {
           tempPokemonList.push(Axios.get(url.url))
         );
         Promise.all(tempPokemonList).then((responses) => {
-          console.log("responses");
-          console.log(responses);
           const pokemonList = responses.map((response) => response.data);
-          console.log("pokemonList =");
-          console.log(pokemonList);
           const structuredPokemonList = pokemonList.map((pokemon) => {
             return {
               id: pokemon.id.toString().padStart(4, "0"),
@@ -92,8 +78,6 @@ const PokemonTable = () => {
     }
     return null;
   }
-
-  console.log();
 
   return (
     <>

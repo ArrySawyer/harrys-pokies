@@ -134,7 +134,6 @@ const PokemonItem = ({ pokemonDetails }: PokemonItemProps) => {
   const mainTypeStyle = typeStyles[mainTypeName] || {}; // add type to remove typescript error
   const secoundaryTypeName = types[1]?.type.name;
   const secoundaryTypeStyle = typeStyles[secoundaryTypeName] || {}; // add type to remove typescript error
-  console.log(pokemonDetails);
 
   return (
     <div className="h-80">
