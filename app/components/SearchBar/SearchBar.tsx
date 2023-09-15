@@ -7,11 +7,6 @@ type SearchBarProps = {
   handleScrollToSearch: () => void;
 };
 
-type handleClickOutside = {
-  e: EventTarget;
-  target: HTMLElement;
-};
-
 const SearchBar = ({ handleScrollToSearch }: SearchBarProps) => {
   const [seachValue, setSeachValue] = useState("");
   const [seachFocused, setSearchFocused] = useState(false);
@@ -42,9 +37,9 @@ const SearchBar = ({ handleScrollToSearch }: SearchBarProps) => {
   const searchBoxRef = useRef<HTMLInputElement>(null);
 
   const handleClickOutside = useCallback(
-    (e: handleClickOutside) => {
+    (e: MouseEvent) => {
       if (searchBoxWrapperRef.current != null && searchBoxRef.current != null) {
-        if (!searchBoxWrapperRef.current.contains(e.target)) {
+        if (!searchBoxWrapperRef.current.contains(e.target as Node)) {
           setSearchFocused(false);
           setSeachValue("");
         } else {
