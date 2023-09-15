@@ -2,7 +2,11 @@
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 
-const PokemonItemSkeleton = ({ cards }) => {
+type PokemonItemSkeletonProps = {
+  cards: number;
+};
+
+const PokemonItemSkeleton = ({ cards }: PokemonItemSkeletonProps) => {
   return Array(cards)
     .fill(0)
     .map((item, i) => (
