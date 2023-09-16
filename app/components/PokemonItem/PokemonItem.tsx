@@ -150,6 +150,7 @@ const PokemonItem = ({ pokemonDetails }: PokemonItemProps) => {
         >
           <div
             className={`w-32 h-32 ${mainTypeStyle.main} blur-[128px] group-hover:scale-125 transition-all ease-out duration-300`}
+            style={{ willChange: "transform" }}
           ></div>
           <div className="z-10 flex flex-col items-center">
             <p className="text-xl font-bold">#{pokemonDetails.id}</p>
@@ -213,6 +214,7 @@ const PokemonItem = ({ pokemonDetails }: PokemonItemProps) => {
             </div>
             <div
               className={`h-5 w-full ${mainTypeStyle.main} blur-[8px] scale-[6] translate-y-6`}
+              style={{ willChange: "transform" }}
             ></div>
           </div>
         </div>

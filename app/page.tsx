@@ -1,7 +1,7 @@
 "use client";
 import SearchBar from "./components/SearchBar/SearchBar";
 import PokemonTable from "./components/PokemonTable/PokemonTable";
-import { useState, useRef, useEffect } from "react";
+import { useRef } from "react";
 import Image from "next/image";
 
 export default function HomePage() {
