@@ -137,13 +137,18 @@ const PokemonItem = ({ pokemonDetails }: PokemonItemProps) => {
 
   return (
     <div className="h-80">
-      <div className="group relative flex justify-center transition-all ease-out duration-300">
+      <div className="group relative flex justify-center">
+        <Image
+          width="256"
+          height="256"
+          className="absolute -top-40 w-64 z-10"
+          src={`${pokemonDetails.image}`}
+          alt={`${pokemonDetails.name}`}
+        />
         <div
-          className={`${mainTypeStyle.wrapper} bg-[#233349] text-white relative w-full h-[19.3rem] sm:h-[17rem] sm:group-hover:h-[19.3rem] flex flex-col items-center border-t rounded-2xl overflow-hidden shadow-2xl sm:shadow-lg group-hover:shadow-2xl sm:group-hover:scale-105 transition-all ease-out duration-300`}
+          className={`${mainTypeStyle.wrapper} bg-[#233349] text-white relative w-full h-[19.3rem] sm:h-[17rem] flex flex-col items-center border-t rounded-2xl overflow-hidden`}
         >
-          <div
-            className={`w-32 h-32 ${mainTypeStyle.main} blur-[128px] group-hover:scale-125 transition-all ease-out duration-300`}
-          ></div>
+          <div className={`w-32 h-32 ${mainTypeStyle.main}`}></div>
           <div className="z-10 flex flex-col items-center">
             <p className="text-xl font-bold">#{pokemonDetails.id}</p>
             <p className="text-3xl font-bold mb-3 capitalize">
@@ -153,12 +158,24 @@ const PokemonItem = ({ pokemonDetails }: PokemonItemProps) => {
               <p
                 className={`px-2.5 py-0.5 rounded-full ${mainTypeStyle.main} flex gap-1.5 font-semibold capitalize`}
               >
+                <img
+                  src={`/svgs/${pokemonDetails.types[0].type.name}.svg`}
+                  alt={pokemonDetails.types[0].type.name}
+                  width="16"
+                  height="16"
+                />
                 {pokemonDetails.types[0].type.name}
               </p>
               {pokemonDetails.types[1] ? (
                 <p
                   className={`px-2.5 py-0.5 rounded-full ${secoundaryTypeStyle.main} flex gap-1.5 font-semibold capitalize`}
                 >
+                  <img
+                    src={`/svgs/${pokemonDetails.types[1].type.name}.svg`}
+                    alt={pokemonDetails.types[1].type.name}
+                    width="16"
+                    height="16"
+                  />
                   {pokemonDetails.types[1].type.name}
                 </p>
               ) : (
@@ -168,7 +185,7 @@ const PokemonItem = ({ pokemonDetails }: PokemonItemProps) => {
           </div>
           <div className="absolute bottom-0 w-full px-8">
             <div
-              className={`${mainTypeStyle.button} w-fit mx-auto flex items-center gap-1 pl-3 pr-2 py-1 border-2 border-white rounded-full sm:opacity-0 group-hover:opacity-100 transition-opacity ease-in-out duration-75 relative z-20 hover:bg-white`}
+              className={`${mainTypeStyle.button} w-fit mx-auto flex items-center gap-1 pl-3 pr-2 py-1 border-2 border-white rounded-full sm:opacity-0 relative z-20 `}
             >
               <Link
                 href={`/pokemon/${pokemonDetails.name}`}
@@ -192,9 +209,7 @@ const PokemonItem = ({ pokemonDetails }: PokemonItemProps) => {
                 </svg>
               </Link>
             </div>
-            <div
-              className={`h-5 w-full ${mainTypeStyle.main} blur-[8px] scale-[6] translate-y-6`}
-            ></div>
+            <div className={`h-5 w-full ${mainTypeStyle.main}`}></div>
           </div>
         </div>
       </div>
