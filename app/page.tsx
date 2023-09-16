@@ -1,7 +1,7 @@
 "use client";
 import SearchBar from "./components/SearchBar/SearchBar";
 import PokemonTable from "./components/PokemonTable/PokemonTable";
-import { useState, useRef, useEffect } from "react";
+import { useRef } from "react";
 import Image from "next/image";
 
 export default function HomePage() {
@@ -152,14 +152,21 @@ export default function HomePage() {
           />
         </svg>
       </section>
-
-      <section ref={sectionSearch} className="bg-[#212E3D] relative">
-        <div className="bg-[url('/images/pokeballs-background.webp')] bg-[length:300px] w-full h-full absolute opacity-5 grayscale"></div>
-        <div className="px-6 md:px-32 pt-40 pb-10 h-fit">
-          <SearchBar handleScrollToSearch={scrollToSearch} />
-          <PokemonTable />
-        </div>
-      </section>
+      <div className="h-screen bg-blue-600">
+        <p>pokemon </p>
+      </div>
+      <div className="h-screen bg-red-600">
+        <p>pokemon </p>
+      </div>
+      <div className="h-screen bg-green-600">
+        <p>pokemon </p>
+      </div>
+      <div className="h-screen bg-pink-600">
+        <p>pokemon </p>
+      </div>
+      <div className="h-screen bg-yellow-600">
+        <p>pokemon </p>
+      </div>
     </div>
   );
 }
