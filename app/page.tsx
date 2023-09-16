@@ -157,9 +157,9 @@ export default function HomePage() {
         <div className="bg-[url('/images/pokeballs-background.webp')] bg-[length:300px] w-full h-full absolute opacity-5 grayscale"></div>
         <div className="px-6 md:px-32 pt-40 pb-10 h-fit">
           <SearchBar handleScrollToSearch={scrollToSearch} />
+          <PokemonTable />
         </div>
       </section>
-
       <div className="h-screen bg-blue-600">
         <p>pokemon </p>
       </div>

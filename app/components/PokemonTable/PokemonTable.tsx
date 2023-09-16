@@ -82,18 +82,7 @@ const PokemonTable = () => {
   return (
     <>
       <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-x-16 gap-y-48 mt-48">
-        {isLoading && <PokemonItemSkeleton cards={9} />}
-        {!isLoading &&
-          pokemonList.map((pokemonDetails) => (
-            <PokemonItem
-              pokemonDetails={pokemonDetails}
-              key={pokemonDetails.id}
-            />
-          ))}
-      </div>
-      <div className="flex gap-16 justify-center relative mt-8 mb-8">
-        <PaginationButton request={previousPageRequest} text="Prev page" />
-        <PaginationButton request={nextPageRequest} text="Next page" />
+        {!isLoading && pokemonList.map((pokemonDetails) => <>hhee</>)}
       </div>
     </>
   );
