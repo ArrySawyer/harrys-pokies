@@ -212,7 +212,7 @@ const PokemonItem = ({ pokemonDetails }: PokemonItemProps) => {
               </Link>
             </div>
             <div
-              className={`h-5 w-full ${mainTypeStyle.main} scale-[6] translate-y-6`}
+              className={`h-5 w-full ${mainTypeStyle.main} blur-[8px] scale-[6] translate-y-6`}
             ></div>
           </div>
         </div>
