@@ -135,7 +135,71 @@ const PokemonItem = ({ pokemonDetails }: PokemonItemProps) => {
   const secoundaryTypeName = types[1]?.type.name;
   const secoundaryTypeStyle = typeStyles[secoundaryTypeName] || {}; // add type to remove typescript error
 
-  return <div className="h-80">wow</div>;
+  return (
+    <div className="h-80">
+      <div className="group relative flex justify-center transition-all ease-out duration-300">
+        <div
+          className={`${mainTypeStyle.wrapper} bg-[#233349] text-white relative w-full h-[19.3rem] sm:h-[17rem] sm:group-hover:h-[19.3rem] flex flex-col items-center border-t rounded-2xl overflow-hidden shadow-2xl sm:shadow-lg group-hover:shadow-2xl sm:group-hover:scale-105 transition-all ease-out duration-300`}
+        >
+          <div
+            className={`w-32 h-32 ${mainTypeStyle.main} blur-[128px] group-hover:scale-125 transition-all ease-out duration-300`}
+          ></div>
+          <div className="z-10 flex flex-col items-center">
+            <p className="text-xl font-bold">#{pokemonDetails.id}</p>
+            <p className="text-3xl font-bold mb-3 capitalize">
+              {pokemonDetails.name}
+            </p>
+            <div className="flex gap-2 z-10">
+              <p
+                className={`px-2.5 py-0.5 rounded-full ${mainTypeStyle.main} flex gap-1.5 font-semibold capitalize`}
+              >
+                {pokemonDetails.types[0].type.name}
+              </p>
+              {pokemonDetails.types[1] ? (
+                <p
+                  className={`px-2.5 py-0.5 rounded-full ${secoundaryTypeStyle.main} flex gap-1.5 font-semibold capitalize`}
+                >
+                  {pokemonDetails.types[1].type.name}
+                </p>
+              ) : (
+                ""
+              )}
+            </div>
+          </div>
+          <div className="absolute bottom-0 w-full px-8">
+            <div
+              className={`${mainTypeStyle.button} w-fit mx-auto flex items-center gap-1 pl-3 pr-2 py-1 border-2 border-white rounded-full sm:opacity-0 group-hover:opacity-100 transition-opacity ease-in-out duration-75 relative z-20 hover:bg-white`}
+            >
+              <Link
+                href={`/pokemon/${pokemonDetails.name}`}
+                className="uppercase relative font-medium flex items-center"
+              >
+                see stats
+                <svg
+                  className="ml-1 rotate-45"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 20 20"
+                  fill="none"
+                >
+                  <path
+                    fillRule="evenodd"
+                    clipRule="evenodd"
+                    d="M10.0004 18C14.4186 18 18.0004 14.4183 18.0004 10C18.0004 5.58172 14.4186 2 10.0004 2C5.58209 2 2.00037 5.58172 2.00037 10C2.00037 14.4183 5.58209 18 10.0004 18ZM13.7075 9.29289L10.7075 6.29289C10.3169 5.90237 9.68378 5.90237 9.29326 6.29289L6.29326 9.29289C5.90274 9.68342 5.90274 10.3166 6.29326 10.7071C6.68378 11.0976 7.31695 11.0976 7.70747 10.7071L9.00037 9.41421L9.00037 13C9.00037 13.5523 9.44808 14 10.0004 14C10.5527 14 11.0004 13.5523 11.0004 13V9.41421L12.2933 10.7071C12.6838 11.0976 13.3169 11.0976 13.7075 10.7071C14.098 10.3166 14.098 9.68342 13.7075 9.29289Z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </Link>
+            </div>
+            <div
+              className={`h-5 w-full ${mainTypeStyle.main} blur-[8px] scale-[6] translate-y-6`}
+            ></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default PokemonItem;
